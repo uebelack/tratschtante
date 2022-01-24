@@ -1,0 +1,37 @@
+{
+  "name": "tratschtante",
+  "version": "0.0.1",
+  "description": "Just another simple logger for node.js",
+  "main": "index.js",
+  "repository": "https://github.com/hackercowboy/tratschtante",
+  "author": "David Übelacker",
+  "license": "MIT",
+  "scripts": {
+    "lint:fix": "eslint src --fix",
+    "lint": "eslint src",
+    "test:watch": "jest --coverage --watch",
+    "test": "jest --coverage",
+    "smoke": "node src/smoke.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.10",
+    "@babel/eslint-parser": "^7.16.5",
+    "@babel/preset-env": "^7.16.11",
+    "eslint": "^8.7.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
+    "jest": "^27.4.7"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
