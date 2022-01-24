@@ -114,14 +114,17 @@ describe('tratschtante', () => {
 
   it('should handle errors with stacktrace', () => {
     const printer = jest.fn();
-    const logger = tratschtante({ printer, formatter: 'json' });
+    const logger = tratschtante({ printer, formatter: 'classic' });
     try {
       throw new TestError('Labore esse quis commodo incididunt proident magna exercitation anim.');
     } catch (e) {
       logger.error(e);
     }
 
-    expect(printer.mock.calls[0][1].indexOf('processTicksAndRejections')).toBeGreaterThan(0);
+    // eslint-disable-next-line no-console
+    console.log(printer.mock.calls[0][1]);
+
+    expect(printer.mock.calls[0][1].indexOf('at run')).toBeGreaterThan(0);
     expect(printer.mock.calls[0][1].indexOf('TestError: Labore')).toBeGreaterThan(0);
   });
 });
