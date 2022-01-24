@@ -1,6 +1,6 @@
 {
   "name": "tratschtante",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Just another simple logger for node.js",
   "main": "dist/index.js",
   "repository": "https://github.com/hackercowboy/tratschtante",
