@@ -7,7 +7,7 @@
   "author": "David Übelacker",
   "license": "MIT",
   "scripts": {
-    "build": "rimraf dist && babel src --out-dir dist",
+    "build": "rimraf dist && babel src --out-dir dist --ignore src/**/__tests__/**/*.js --ignore src/**/*test.js",
     "lint:fix": "eslint src --fix",
     "lint": "eslint src",
     "test:watch": "jest --coverage --watch",
@@ -25,10 +25,6 @@
     "jest": "^27.4.7"
   },
   "babel": {
-    "ignore": [
-      "**/__tests__",
-      "**/*.test.js"
-    ],
     "presets": [
       [
         "@babel/env",
