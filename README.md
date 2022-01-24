@@ -99,7 +99,7 @@ try {
 MIT License. See `LICENSE.txt` for more information.
 
 
-[build-shield]: https://img.shields.io/github/workflow/status/hackercowboy/tratschtante/Build.svg?style=for-the-badge
+[build-shield]: https://img.shields.io/github/workflow/status/hackercowboy/tratschtante/ci.svg?style=for-the-badge
 [build-url]: https://github.com/hackercowboy/tratschtante/actions/workflows/main.yml
 [language-shield]: https://img.shields.io/github/languages/top/hackercowboy/tratschtante.svg?style=for-the-badge
 [language-url]: https://github.com/hackercowboy/tratschtante
