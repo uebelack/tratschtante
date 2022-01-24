@@ -121,9 +121,6 @@ describe('tratschtante', () => {
       logger.error(e);
     }
 
-    // eslint-disable-next-line no-console
-    console.log(printer.mock.calls[0][1]);
-
     expect(printer.mock.calls[0][1].indexOf('at run')).toBeGreaterThan(0);
     expect(printer.mock.calls[0][1].indexOf('TestError: Labore')).toBeGreaterThan(0);
   });

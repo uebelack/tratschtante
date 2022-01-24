@@ -6,11 +6,10 @@
 [![MIT License][license-shield]][license-url]
 
 
-
 <br />
 <div align="center">
   <a href="https://github.com/hackercowboy/tratschtante">
-    <img src="./screenshot.png" alt="Logo" width="906" height="235">
+    <img src="./screenshot.png" alt="Logo" style="max-width: 906px;">
   </a>
 
 <h1 align="center">tratschtante</h1>
@@ -99,7 +98,7 @@ try {
 MIT License. See `LICENSE.txt` for more information.
 
 
-[build-shield]: https://img.shields.io/github/workflow/status/hackercowboy/tratschtante/ci.svg?style=for-the-badge
+[build-shield]: https://img.shields.io/github/workflow/status/hackercowboy/tratschtante/CI.svg?style=for-the-badge
 [build-url]: https://github.com/hackercowboy/tratschtante/actions/workflows/main.yml
 [language-shield]: https://img.shields.io/github/languages/top/hackercowboy/tratschtante.svg?style=for-the-badge
 [language-url]: https://github.com/hackercowboy/tratschtante
