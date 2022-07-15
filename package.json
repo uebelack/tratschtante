@@ -1,6 +1,6 @@
 {
   "name": "tratschtante",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Just another simple logger for node.js",
   "main": "dist/index.js",
   "repository": "https://github.com/hackercowboy/tratschtante",
@@ -15,14 +15,14 @@
     "smoke": "node src/smoke.js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.10",
-    "@babel/eslint-parser": "^7.16.5",
-    "@babel/preset-env": "^7.16.11",
-    "eslint": "^8.7.0",
+    "@babel/cli": "^7.18.6",
+    "@babel/core": "^7.18.6",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-env": "^7.18.6",
+    "eslint": "^8.19.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.4",
-    "jest": "^27.4.7"
+    "eslint-plugin-import": "^2.26.0",
+    "jest": "^28.1.3"
   },
   "babel": {
     "presets": [
