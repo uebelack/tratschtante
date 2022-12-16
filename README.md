@@ -8,7 +8,7 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/hackercowboy/tratschtante">
+  <a href="https://github.com/uebelack/tratschtante">
     <img src="./screenshot.png" alt="Logo" style="max-width: 906px;">
   </a>
 
@@ -98,12 +98,12 @@ try {
 MIT License. See `LICENSE.txt` for more information.
 
 
-[build-shield]: https://img.shields.io/github/workflow/status/hackercowboy/tratschtante/CI.svg?style=for-the-badge
-[build-url]: https://github.com/hackercowboy/tratschtante/actions/workflows/main.yml
-[language-shield]: https://img.shields.io/github/languages/top/hackercowboy/tratschtante.svg?style=for-the-badge
-[language-url]: https://github.com/hackercowboy/tratschtante
-[coverage-shield]: https://img.shields.io/coveralls/github/hackercowboy/tratschtante.svg?style=for-the-badge
-[coverage-url]: https://coveralls.io/github/hackercowboy/tratschtante
-[license-shield]: https://img.shields.io/github/license/hackercowboy/tratschtante.svg?style=for-the-badge
-[license-url]: https://github.com/hackercowboy/tratschtante/blob/master/LICENSE.txt
+[build-shield]: https://img.shields.io/github/workflow/status/uebelack/tratschtante/CI.svg?style=for-the-badge
+[build-url]: https://github.com/uebelack/tratschtante/actions/workflows/main.yml
+[language-shield]: https://img.shields.io/github/languages/top/uebelack/tratschtante.svg?style=for-the-badge
+[language-url]: https://github.com/uebelack/tratschtante
+[coverage-shield]: https://img.shields.io/coveralls/github/uebelack/tratschtante.svg?style=for-the-badge
+[coverage-url]: https://coveralls.io/github/uebelack/tratschtante
+[license-shield]: https://img.shields.io/github/license/uebelack/tratschtante.svg?style=for-the-badge
+[license-url]: https://github.com/uebelack/tratschtante/blob/master/LICENSE.txt
 
