@@ -1,7 +1,7 @@
-const classicFormatter = require('./formatters/classic');
-const modernFormatter = require('./formatters/modern');
-const jsonFormatter = require('./formatters/json');
-const consolePrinter = require('./printers/console');
+import classicFormatter from './formatters/classic.js';
+import modernFormatter from './formatters/modern.js';
+import jsonFormatter from './formatters/json.js';
+import consolePrinter from './printers/console.js';
 
 const levels = {
   critical: 'critical',
@@ -87,4 +87,4 @@ const tratschtante = (options = {}) => {
   };
 };
 
-module.exports = tratschtante;
+export default tratschtante;

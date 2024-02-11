@@ -1,4 +1,4 @@
-import classic from '../classic';
+import classic from '../classic.js';
 
 describe('classic formatter', () => {
   it('should format', () => {

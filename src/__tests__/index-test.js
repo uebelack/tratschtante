@@ -1,4 +1,6 @@
-import tratschtante from '../index';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { jest } from '@jest/globals';
+import tratschtante from '../index.js';
 
 class TestError extends Error {
   constructor(message) {

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-const tratschtante = require('./index');
+import tratschtante from './index.js';
 
 console.log('--- MODERN ------------------------------------------------------------');
 let logger = tratschtante({ level: 'trace' });

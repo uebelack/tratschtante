@@ -29,4 +29,4 @@ function modern(message) {
   return result.join('');
 }
 
-module.exports = modern;
+export default modern;

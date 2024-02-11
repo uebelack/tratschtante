@@ -1,4 +1,4 @@
-import modern from '../modern';
+import modern from '../modern.js';
 
 describe('modern formatter', () => {
   it('should format', () => {

@@ -1,4 +1,4 @@
-import json from '../json';
+import json from '../json.js';
 
 describe('json formatter', () => {
   it('should format', () => {

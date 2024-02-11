@@ -25,4 +25,4 @@ function classic(message) {
   return result.join('');
 }
 
-module.exports = classic;
+export default classic;
