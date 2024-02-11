@@ -29,19 +29,7 @@ If you are looking for something simple like this, try this library, if you are 
 ## Quick Start
 
 ```bash
-npm install tratschtante 
-```
-
-```javascript
-const log = require('tratschtante')();
-
-log.info('Hello World!);
-```
-
-or 
-
-```bash
-yarn add tratschtante 
+npm install tratschtante / yarn add tratschtante 
 ```
 
 ```javascript
@@ -76,7 +64,9 @@ log.info('Hello World!);
 Some code to just see how it works:
 
 ```javascript
-const log = require('tratschtante')({ 
+import tratschtante from 'tratschtante';
+
+const log = tratschtante({ 
   category: 'api',
   printer: (entry) => axios.post('http://localhost:3000/log', entry),
   formatter: (entry) => JSON.stringify(entry) });
@@ -98,8 +88,8 @@ try {
 MIT License. See `LICENSE.txt` for more information.
 
 
-[build-shield]: https://img.shields.io/github/workflow/status/uebelack/tratschtante/CI.svg?style=for-the-badge
-[build-url]: https://github.com/uebelack/tratschtante/actions/workflows/main.yml
+[build-shield]: https://img.shields.io/github/actions/workflow/status/uebelack/tratschtante/ci.yml?branch=main&style=for-the-badge
+[build-url]: https://github.com/uebelack/tratschtante/actions/workflows/ci.yml
 [language-shield]: https://img.shields.io/github/languages/top/uebelack/tratschtante.svg?style=for-the-badge
 [language-url]: https://github.com/uebelack/tratschtante
 [coverage-shield]: https://img.shields.io/coveralls/github/uebelack/tratschtante.svg?style=for-the-badge
