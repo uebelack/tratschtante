@@ -1,22 +1,25 @@
 {
   "name": "tratschtante",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Just another simple logger for node.js",
   "type": "module",
   "main": "src/index.js",
+  "types": "types/index.d.ts",
   "repository": "https://github.com/uebelack/tratschtante",
   "author": "David Übelacker",
   "license": "MIT",
   "scripts": {
     "lint": "eslint src",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "types": "tsc",
     "smoke": "node src/smoke.js"
   },
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jest": "^27.6.3",
-    "jest": "^29.7.0"
+    "eslint-plugin-jest": "^27.9.0",
+    "jest": "^29.7.0",
+    "typescript": "^5.3.3"
   }
 }
