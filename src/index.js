@@ -1,6 +1,7 @@
 import classicFormatter from './formatters/classic.js';
 import modernFormatter from './formatters/modern.js';
 import jsonFormatter from './formatters/json.js';
+import lambdaFormatter from './formatters/lambda.js';
 import consolePrinter from './printers/console.js';
 
 const levels = {
@@ -25,6 +26,7 @@ const formatters = {
   classic: classicFormatter,
   modern: modernFormatter,
   json: jsonFormatter,
+  lambda: lambdaFormatter,
 };
 
 const printers = {

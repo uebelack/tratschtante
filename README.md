@@ -44,7 +44,7 @@ You can pass following options as function parmeter or set them via environment 
 
 | name  | environment | default | possibilites |
 |---|---|---|---|
-| formatter  | TRATSCHTANTE_FORMATTER | 'modern' | 'modern', 'classic', 'json' or custom formatter as function. |
+| formatter  | TRATSCHTANTE_FORMATTER | 'modern' | 'modern', 'classic', 'json', 'lambda' or custom formatter as function. |
 | printer  | TRATSCHTANTE_PRINTER | 'console' | 'console' or custom printer as function. |
 | category  | | undefined | any string |
 | level | TRATSCHTANTE_LOG_LEVEL, NODE_LOG_LEVEL | 'info' | 'trace', 'debug', 'info', 'waring', 'error', 'critical',|

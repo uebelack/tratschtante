@@ -1,6 +1,6 @@
 {
   "name": "tratschtante",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Just another simple logger for node.js",
   "type": "module",
   "main": "src/index.js",
