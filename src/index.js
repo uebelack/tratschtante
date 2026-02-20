@@ -1,16 +1,17 @@
-import classicFormatter from './formatters/classic.js';
-import modernFormatter from './formatters/modern.js';
-import jsonFormatter from './formatters/json.js';
-import lambdaFormatter from './formatters/lambda.js';
-import consolePrinter from './printers/console.js';
+import classicFormatter from "./formatters/classic.js";
+import modernFormatter from "./formatters/modern.js";
+import jsonFormatter from "./formatters/json.js";
+import lambdaFormatter from "./formatters/lambda.js";
+import emojiFormatter from "./formatters/emoji.js";
+import consolePrinter from "./printers/console.js";
 
 const levels = {
-  critical: 'critical',
-  error: 'error',
-  warning: 'warning',
-  info: 'info',
-  debug: 'debug',
-  trace: 'trace',
+  critical: "critical",
+  error: "error",
+  warning: "warning",
+  info: "info",
+  debug: "debug",
+  trace: "trace",
 };
 
 const levelIndexes = {
@@ -27,6 +28,7 @@ const formatters = {
   modern: modernFormatter,
   json: jsonFormatter,
   lambda: lambdaFormatter,
+  emoji: emojiFormatter,
 };
 
 const printers = {
@@ -34,7 +36,7 @@ const printers = {
 };
 
 function isFunction(func) {
-  return typeof func === 'function';
+  return typeof func === "function";
 }
 
 function extractMessage(message) {
@@ -49,17 +51,25 @@ function extractMessage(message) {
 }
 
 function createLogger(options) {
-  const formatter = (isFunction(options.formatter)
-    ? options.formatter : formatters[options.formatter])
-  || formatters[process.env.TRATSCHTANTE_FORMATTER]
-  || formatters.modern;
+  const formatter =
+    (isFunction(options.formatter)
+      ? options.formatter
+      : formatters[options.formatter]) ||
+    formatters[process.env.TRATSCHTANTE_FORMATTER] ||
+    formatters.modern;
 
-  const printer = (isFunction(options.printer)
-    ? options.printer : formatters[options.printer])
-  || printers[process.env.TRATSCHTANTE_PRINTER]
-  || printers.console;
+  const printer =
+    (isFunction(options.printer)
+      ? options.printer
+      : formatters[options.printer]) ||
+    printers[process.env.TRATSCHTANTE_PRINTER] ||
+    printers.console;
 
-  const definedLogLevel = options.level || process.env.TRATSCHTANTE_LOG_LEVEL || process.env.NODE_LOG_LEVEL || 'info';
+  const definedLogLevel =
+    options.level ||
+    process.env.TRATSCHTANTE_LOG_LEVEL ||
+    process.env.NODE_LOG_LEVEL ||
+    "info";
 
   return {
     log: (level, message) => {
