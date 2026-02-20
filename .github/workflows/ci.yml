@@ -14,24 +14,28 @@ jobs:
     strategy:
       matrix:
         node:
-          - 18
           - 20
-          - 21
+          - 22
+          - 24
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
+      - name: Enable Corepack
+        run: corepack enable
       - name: Install Dependencies
         run: yarn install
       - name: Lint
-        run: yarn lint
+        run: yarn lint:check
+      - name: Format
+        run: yarn format:check
       - name: Types
         run: yarn types
       - name: Test
         run: yarn test --coverage
       - name: Coveralls
-        if: matrix.node == '18'
+        if: matrix.node == '24'
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}

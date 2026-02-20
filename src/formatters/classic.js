@@ -1,10 +1,10 @@
 const levelMapping = {
-  critical: 'critical',
-  error: 'error   ',
-  warning: 'warning ',
-  info: 'info    ',
-  debug: 'debug   ',
-  trace: 'trace   ',
+  critical: "critical",
+  error: "error   ",
+  warning: "warning ",
+  info: "info    ",
+  debug: "debug   ",
+  trace: "trace   ",
 };
 
 function classic(message) {
@@ -22,7 +22,7 @@ function classic(message) {
     result.push(`${message.stack}`);
   }
 
-  return result.join('');
+  return result.join("");
 }
 
 export default classic;

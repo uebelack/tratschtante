@@ -10,7 +10,7 @@ function lambda(message) {
     result.push(`${message.stack}`);
   }
 
-  return result.join('');
+  return result.join("");
 }
 
 export default lambda;
