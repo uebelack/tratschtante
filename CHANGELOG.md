@@ -4,15 +4,25 @@
 
 ### Breaking changes
 
+- 💥 add exports map, deep imports into src/ are no longer supported
 - 💥 require Node.js 24
+
+### Features
+
+- ✨ ship typed declarations for options, logger, formatters and printers
 
 ### Bug fixes
 
+- 🐛 ignore formatter and printer names inherited from Object.prototype
 - 🐛 look up printer names in printers instead of formatters
 
 ### Dependencies
 
 - ⬆️ update TypeScript to 7 and regenerate type declarations
+
+### Documentation
+
+- 📝 mention bundled type declarations
 
 ### Tests
 
