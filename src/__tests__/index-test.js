@@ -9,15 +9,24 @@ class TestError extends Error {
 }
 
 describe("tratschtante", () => {
+  it("should work with default options", () => {
+    const spy = jest.spyOn(console, "log").mockImplementation(() => {});
+    tratschtante().info("test");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("test"));
+    spy.mockRestore();
+  });
+
   it("should work", () => {
-    tratschtante().debug("test");
-    const logger = tratschtante({ printer: jest.fn() });
+    const printer = jest.fn();
+    const logger = tratschtante({ printer });
     logger.trace("test");
     logger.error();
     logger.error(null);
     logger.error(undefined);
     logger.error([]);
     logger.error({});
+    expect(printer).toHaveBeenCalledTimes(5);
+    expect(printer).toHaveBeenCalledWith("error", expect.any(String));
   });
 
   it("should log with the right level", () => {
