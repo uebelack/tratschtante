@@ -1,4 +1,3 @@
-/* istanbul ignore next */
 const consolePrinter = (level, message) => {
   switch (level) {
     case "critical":

@@ -1,5 +1,3 @@
-/* istanbul ignore file */
-
 import tratschtante from "./index.js";
 
 console.log("--- MODERN ------------------------------------------------------------");

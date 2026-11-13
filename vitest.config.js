@@ -9,7 +9,7 @@ export default defineConfig({
       enabled: true,
       provider: "istanbul",
       include: ["src/**/*.js"],
-      exclude: ["src/**/*-test.js"],
+      exclude: ["src/**/*-test.js", "src/smoke.js"],
       reporter: ["text", "lcov"],
       thresholds: {
         statements: 100,
