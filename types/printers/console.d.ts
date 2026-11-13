@@ -1,3 +1,3 @@
+declare const consolePrinter: (level: any, message: any) => void;
 export default consolePrinter;
-declare function consolePrinter(level: any, message: any): void;
 //# sourceMappingURL=console.d.ts.map
