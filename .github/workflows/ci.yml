@@ -13,10 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node:
-          - 20
-          - 22
-          - 24
+        # previous LTS (= engines.node minimum) and current LTS
+        node: [24, 26]
     steps:
       - uses: actions/checkout@v2
       - uses: pnpm/action-setup@v6
@@ -35,7 +33,7 @@ jobs:
       - name: Test
         run: pnpm test
       - name: Coveralls
-        if: matrix.node == '24'
+        if: matrix.node == 26
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
