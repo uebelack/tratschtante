@@ -9,6 +9,13 @@ class TestError extends Error {
 }
 
 describe("tratschtante", () => {
+  it("should not use a formatter as printer", () => {
+    const spy = vi.spyOn(console, "log").mockImplementation(() => {});
+    tratschtante({ printer: "json" }).info("test");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("test"));
+    spy.mockRestore();
+  });
+
   it("should work with default options", () => {
     const spy = vi.spyOn(console, "log").mockImplementation(() => {});
     tratschtante().info("test");

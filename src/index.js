@@ -57,7 +57,7 @@ function createLogger(options) {
     formatters.modern;
 
   const printer =
-    (isFunction(options.printer) ? options.printer : formatters[options.printer]) ||
+    (isFunction(options.printer) ? options.printer : printers[options.printer]) ||
     printers[process.env.TRATSCHTANTE_PRINTER] ||
     printers.console;
 
