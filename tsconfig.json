@@ -1,6 +1,6 @@
 {
   "include": ["src/**/*"],
-  "exclude": ["src/**/*-test.js"],
+  "exclude": ["src/**/*-test.js", "src/smoke.js"],
   "compilerOptions": {
     "allowJs": true,
     "declaration": true,

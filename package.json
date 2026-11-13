@@ -2,9 +2,31 @@
   "name": "tratschtante",
   "version": "1.0.0",
   "description": "Just another simple logger for node.js",
+  "keywords": [
+    "console",
+    "json",
+    "lambda",
+    "log",
+    "logger",
+    "logging"
+  ],
+  "homepage": "https://github.com/uebelack/tratschtante#readme",
+  "bugs": {
+    "url": "https://github.com/uebelack/tratschtante/issues"
+  },
   "license": "MIT",
   "author": "David Übelacker",
-  "repository": "https://github.com/uebelack/tratschtante",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uebelack/tratschtante.git"
+  },
+  "files": [
+    "src/**/*.js",
+    "!src/**/__tests__/**",
+    "!src/smoke.js",
+    "types/**/*.d.ts",
+    "types/**/*.d.ts.map"
+  ],
   "type": "module",
   "main": "src/index.js",
   "types": "types/index.d.ts",
