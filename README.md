@@ -28,7 +28,7 @@ If you are looking for something simple like this, try this library, if you are 
 ## Quick Start
 
 ```bash
-npm install tratschtante / yarn add tratschtante
+npm install tratschtante / pnpm add tratschtante
 ```
 
 ```javascript

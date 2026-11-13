@@ -19,21 +19,21 @@ jobs:
           - 24
     steps:
       - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v6
       - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node }}
-      - name: Enable Corepack
-        run: corepack enable
+          cache: pnpm
       - name: Install Dependencies
-        run: yarn install
+        run: pnpm install --frozen-lockfile
       - name: Lint
-        run: yarn lint:check
+        run: pnpm run lint:check
       - name: Format
-        run: yarn format:check
+        run: pnpm run format:check
       - name: Types
-        run: yarn types
+        run: pnpm run types
       - name: Test
-        run: yarn test --coverage
+        run: pnpm test
       - name: Coveralls
         if: matrix.node == '24'
         uses: coverallsapp/github-action@master
