@@ -13,29 +13,16 @@
     "lint:fix": "oxlint --fix",
     "format:check": "oxfmt --check .",
     "format:write": "oxfmt .",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test": "vitest run",
     "types": "tsc",
     "smoke": "node src/smoke.js"
   },
   "devDependencies": {
-    "jest": "^30.2.0",
+    "@vitest/coverage-istanbul": "^5.1.0",
     "oxfmt": "^0.78.0",
     "oxlint": "^1.93.0",
-    "typescript": "^5.9.3"
-  },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    }
+    "typescript": "^5.9.3",
+    "vitest": "^5.1.0"
   },
   "packageManager": "pnpm@12.18.0"
 }
