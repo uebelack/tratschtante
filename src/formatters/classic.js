@@ -7,6 +7,7 @@ const levelMapping = {
   trace: "trace   ",
 };
 
+/** @type {import("../index.js").Formatter} */
 function classic(message) {
   const result = [];
 

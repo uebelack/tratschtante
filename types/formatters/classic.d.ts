@@ -1,3 +1,4 @@
+/** @type {import("../index.js").Formatter} */
+declare function classic(message: import("../index.js").LogEntry): string;
 export default classic;
-declare function classic(message: any): string;
 //# sourceMappingURL=classic.d.ts.map

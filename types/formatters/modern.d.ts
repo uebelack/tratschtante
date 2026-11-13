@@ -1,3 +1,4 @@
+/** @type {import("../index.js").Formatter} */
+declare function modern(message: import("../index.js").LogEntry): string;
 export default modern;
-declare function modern(message: any): string;
 //# sourceMappingURL=modern.d.ts.map

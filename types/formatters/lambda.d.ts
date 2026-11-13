@@ -1,3 +1,4 @@
+/** @type {import("../index.js").Formatter} */
+declare function lambda(message: import("../index.js").LogEntry): string;
 export default lambda;
-declare function lambda(message: any): string;
 //# sourceMappingURL=lambda.d.ts.map

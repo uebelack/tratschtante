@@ -1,3 +1,4 @@
+/** @type {import("../index.js").Formatter} */
+declare function emoji(message: import("../index.js").LogEntry): string;
 export default emoji;
-declare function emoji(message: any): string;
 //# sourceMappingURL=emoji.d.ts.map

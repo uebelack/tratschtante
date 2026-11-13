@@ -1,3 +1,4 @@
+/** @type {import("../index.js").Printer} */
+declare const consolePrinter: import("../index.js").Printer;
 export default consolePrinter;
-declare function consolePrinter(level: any, message: any): void;
 //# sourceMappingURL=console.d.ts.map

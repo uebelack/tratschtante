@@ -1,1 +1,1 @@
-{"version":3,"file":"console.d.ts","sourceRoot":"","sources":["../../src/printers/console.js"],"names":[],"mappings":";AACA,gEAYC"}
+{"version":3,"file":"console.d.ts","sourceRoot":"","sources":["../../src/printers/console.js"],"names":[],"mappings":"AAAA,4CAA4C;AAC5C,QAAA,MAAM,cAAc,EADT,OAAO,aAAa,EAAE,OAahC,CAAC;eAEa,cAAc"}

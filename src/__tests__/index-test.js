@@ -1,4 +1,4 @@
-import { jest } from "@jest/globals";
+import { vi } from "vitest";
 import tratschtante from "../index.js";
 
 class TestError extends Error {
@@ -9,24 +9,46 @@ class TestError extends Error {
 }
 
 describe("tratschtante", () => {
+  it("should ignore names inherited from Object.prototype", () => {
+    const spy = vi.spyOn(console, "log").mockImplementation(() => {});
+    tratschtante({ formatter: "toString", printer: "toString" }).info("test");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("test"));
+    spy.mockRestore();
+  });
+
+  it("should not use a formatter as printer", () => {
+    const spy = vi.spyOn(console, "log").mockImplementation(() => {});
+    tratschtante({ printer: "json" }).info("test");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("test"));
+    spy.mockRestore();
+  });
+
+  it("should work with default options", () => {
+    const spy = vi.spyOn(console, "log").mockImplementation(() => {});
+    tratschtante().info("test");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("test"));
+    spy.mockRestore();
+  });
+
   it("should work", () => {
-    tratschtante().debug("test");
-    const logger = tratschtante({ printer: jest.fn() });
+    const printer = vi.fn();
+    const logger = tratschtante({ printer });
     logger.trace("test");
     logger.error();
     logger.error(null);
     logger.error(undefined);
     logger.error([]);
     logger.error({});
+    expect(printer).toHaveBeenCalledTimes(5);
+    expect(printer).toHaveBeenCalledWith("error", expect.any(String));
   });
 
   it("should log with the right level", () => {
-    const formatter = jest.fn();
-    const printer = jest.fn();
+    const formatter = vi.fn();
+    const printer = vi.fn();
     const logger = tratschtante({ level: "trace", printer, formatter });
 
-    const mockDate = new Date(1466424490000);
-    const spy = jest.spyOn(global, "Date").mockImplementation(() => mockDate);
+    vi.useFakeTimers({ now: 1466424490000 });
 
     logger.critical("critical");
     logger.error("error");
@@ -71,16 +93,15 @@ describe("tratschtante", () => {
       timestamp: new Date(),
     });
 
-    spy.mockRestore();
+    vi.useRealTimers();
   });
 
   it("should only log if log level matches", () => {
-    const formatter = jest.fn();
-    const printer = jest.fn();
+    const formatter = vi.fn();
+    const printer = vi.fn();
     const logger = tratschtante({ level: "warning", printer, formatter });
 
-    const mockDate = new Date(1466424490000);
-    const spy = jest.spyOn(global, "Date").mockImplementation(() => mockDate);
+    vi.useFakeTimers({ now: 1466424490000 });
 
     logger.error("error");
     logger.warning("warning");
@@ -103,46 +124,39 @@ describe("tratschtante", () => {
       timestamp: new Date(),
     });
 
-    spy.mockRestore();
+    vi.useRealTimers();
   });
 
   it("should execute functions", () => {
-    const formatter = jest.fn();
-    const printer = jest.fn();
+    const formatter = vi.fn();
+    const printer = vi.fn();
     const logger = tratschtante({ level: "trace", printer, formatter });
 
-    const mockDate = new Date(1466424490000);
-    const spy = jest.spyOn(global, "Date").mockImplementation(() => mockDate);
+    vi.useFakeTimers({ now: 1466424490000 });
 
     logger.error(
-      () =>
-        "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
+      () => "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
     );
 
     expect(formatter.mock.calls[0][0]).toEqual({
       level: "error",
-      message:
-        "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
+      message: "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
       timestamp: new Date(),
     });
 
-    spy.mockRestore();
+    vi.useRealTimers();
   });
 
   it("should handle errors with stacktrace", () => {
-    const printer = jest.fn();
+    const printer = vi.fn();
     const logger = tratschtante({ printer, formatter: "classic" });
     try {
-      throw new TestError(
-        "Labore esse quis commodo incididunt proident magna exercitation anim.",
-      );
+      throw new TestError("Labore esse quis commodo incididunt proident magna exercitation anim.");
     } catch (e) {
       logger.error(e);
     }
 
     expect(printer.mock.calls[0][1].indexOf("at run")).toBeGreaterThan(0);
-    expect(
-      printer.mock.calls[0][1].indexOf("TestError: Labore"),
-    ).toBeGreaterThan(0);
+    expect(printer.mock.calls[0][1].indexOf("TestError: Labore")).toBeGreaterThan(0);
   });
 });

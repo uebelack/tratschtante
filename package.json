@@ -1,45 +1,61 @@
 {
   "name": "tratschtante",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Just another simple logger for node.js",
+  "keywords": [
+    "console",
+    "json",
+    "lambda",
+    "log",
+    "logger",
+    "logging"
+  ],
+  "homepage": "https://github.com/uebelack/tratschtante#readme",
+  "bugs": {
+    "url": "https://github.com/uebelack/tratschtante/issues"
+  },
+  "license": "MIT",
+  "author": "David Übelacker",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uebelack/tratschtante.git"
+  },
+  "files": [
+    "src/**/*.js",
+    "!src/**/__tests__/**",
+    "!src/smoke.js",
+    "types/**/*.d.ts",
+    "types/**/*.d.ts.map"
+  ],
   "type": "module",
   "main": "src/index.js",
   "types": "types/index.d.ts",
-  "repository": "https://github.com/uebelack/tratschtante",
-  "author": "David Übelacker",
-  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
-    "lint:check": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "lint:check": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format:check": "oxfmt --check .",
+    "format:write": "oxfmt .",
+    "test": "vitest run",
     "types": "tsc",
     "smoke": "node src/smoke.js"
   },
-  "packageManager": "yarn@4.12.0",
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.js"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    }
-  },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@eslint/json": "^1.0.1",
-    "@eslint/markdown": "^7.5.1",
-    "eslint": "^10.0.0",
-    "globals": "^17.3.0",
-    "jest": "^30.2.0",
-    "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
-  }
+    "@types/node": "^24.19.2",
+    "@vitest/coverage-istanbul": "^5.1.0",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "packageManager": "pnpm@12.18.0"
 }

@@ -27,37 +27,44 @@ If you are looking for something simple like this, try this library, if you are 
 
 ## Quick Start
 
+Requires Node.js 24 or newer.
+
 ```bash
-npm install tratschtante / yarn add tratschtante
+npm install tratschtante / pnpm add tratschtante
 ```
 
 ```javascript
-import tratschtante from 'tratschtante';
+import tratschtante from "tratschtante";
 
 const log = tratschtante();
-log.info('Hello World!);
+log.info("Hello World!");
 ```
+
+Type declarations are included, so TypeScript users get typed options and logger methods out of the box.
 
 ## Options
 
-You can pass following options as function parmeter or set them via environment variable:
+You can pass following options as function parameter or set them via environment variable:
 
-| name      | environment                            | default   | possibilites                                                                    |
+| name      | environment                            | default   | possibilities                                                                   |
 | --------- | -------------------------------------- | --------- | ------------------------------------------------------------------------------- |
 | formatter | TRATSCHTANTE_FORMATTER                 | 'modern'  | 'modern', 'classic', 'json', 'lambda', 'emoji' or custom formatter as function. |
 | printer   | TRATSCHTANTE_PRINTER                   | 'console' | 'console' or custom printer as function.                                        |
 | category  |                                        | undefined | any string                                                                      |
-| level     | TRATSCHTANTE_LOG_LEVEL, NODE_LOG_LEVEL | 'info'    | 'trace', 'debug', 'info', 'waring', 'error', 'critical',                        |
+| level     | TRATSCHTANTE_LOG_LEVEL, NODE_LOG_LEVEL | 'info'    | 'trace', 'debug', 'info', 'warning', 'error', 'critical',                       |
 
 Example:
 
 ```javascript
-const log = require('tratschtante')({
-  category: 'api',
-  printer: 'console',
-  formatter: 'json' });
+import tratschtante from "tratschtante";
 
-log.info('Hello World!);
+const log = tratschtante({
+  category: "api",
+  printer: "console",
+  formatter: "json",
+});
+
+log.info("Hello World!");
 ```
 
 ## Usage
@@ -95,4 +102,4 @@ MIT License. See `LICENSE.txt` for more information.
 [coverage-shield]: https://img.shields.io/coveralls/github/uebelack/tratschtante.svg?style=for-the-badge
 [coverage-url]: https://coveralls.io/github/uebelack/tratschtante
 [license-shield]: https://img.shields.io/github/license/uebelack/tratschtante.svg?style=for-the-badge
-[license-url]: https://github.com/uebelack/tratschtante/blob/master/LICENSE.txt
+[license-url]: https://github.com/uebelack/tratschtante/blob/main/LICENSE.txt

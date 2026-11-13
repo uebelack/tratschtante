@@ -1,1 +1,1 @@
-{"version":3,"file":"emoji.d.ts","sourceRoot":"","sources":["../../src/formatters/emoji.js"],"names":[],"mappings":";AASA,6CAgBC"}
+{"version":3,"file":"emoji.d.ts","sourceRoot":"","sources":["../../src/formatters/emoji.js"],"names":[],"mappings":"AASA,8CAA8C;AAC9C,iBAAS,KAAK,CAAC,OAAO,gCAAA,UAgBrB;eAEc,KAAK"}

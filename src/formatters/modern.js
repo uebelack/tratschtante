@@ -9,14 +9,13 @@ const style = {
   reset: "\x1b[0m",
 };
 
+/** @type {import("../index.js").Formatter} */
 function modern(message) {
   const result = [];
 
   result.push(`${style.time}${message.timestamp.toISOString()}`);
   result.push(" ");
-  result.push(
-    `${style.reset}${style[message.level]}${message.level.toUpperCase()}${style.reset}`,
-  );
+  result.push(`${style.reset}${style[message.level]}${message.level.toUpperCase()}${style.reset}`);
   result.push("      ".substring(0, 9 - message.level.length));
 
   if (message.category) {

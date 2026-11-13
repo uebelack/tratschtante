@@ -1,3 +1,4 @@
+/** @type {import("../index.js").Formatter} */
 function lambda(message) {
   const result = [];
 
