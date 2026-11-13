@@ -52,24 +52,17 @@ function extractMessage(message) {
 
 function createLogger(options) {
   const formatter =
-    (isFunction(options.formatter)
-      ? options.formatter
-      : formatters[options.formatter]) ||
+    (isFunction(options.formatter) ? options.formatter : formatters[options.formatter]) ||
     formatters[process.env.TRATSCHTANTE_FORMATTER] ||
     formatters.modern;
 
   const printer =
-    (isFunction(options.printer)
-      ? options.printer
-      : formatters[options.printer]) ||
+    (isFunction(options.printer) ? options.printer : formatters[options.printer]) ||
     printers[process.env.TRATSCHTANTE_PRINTER] ||
     printers.console;
 
   const definedLogLevel =
-    options.level ||
-    process.env.TRATSCHTANTE_LOG_LEVEL ||
-    process.env.NODE_LOG_LEVEL ||
-    "info";
+    options.level || process.env.TRATSCHTANTE_LOG_LEVEL || process.env.NODE_LOG_LEVEL || "info";
 
   return {
     log: (level, message) => {

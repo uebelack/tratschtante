@@ -115,14 +115,12 @@ describe("tratschtante", () => {
     const spy = jest.spyOn(global, "Date").mockImplementation(() => mockDate);
 
     logger.error(
-      () =>
-        "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
+      () => "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
     );
 
     expect(formatter.mock.calls[0][0]).toEqual({
       level: "error",
-      message:
-        "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
+      message: "Pariatur deserunt ipsum aute laboris laboris eu fugiat ex elit adipisicing velit.",
       timestamp: new Date(),
     });
 
@@ -133,16 +131,12 @@ describe("tratschtante", () => {
     const printer = jest.fn();
     const logger = tratschtante({ printer, formatter: "classic" });
     try {
-      throw new TestError(
-        "Labore esse quis commodo incididunt proident magna exercitation anim.",
-      );
+      throw new TestError("Labore esse quis commodo incididunt proident magna exercitation anim.");
     } catch (e) {
       logger.error(e);
     }
 
     expect(printer.mock.calls[0][1].indexOf("at run")).toBeGreaterThan(0);
-    expect(
-      printer.mock.calls[0][1].indexOf("TestError: Labore"),
-    ).toBeGreaterThan(0);
+    expect(printer.mock.calls[0][1].indexOf("TestError: Labore")).toBeGreaterThan(0);
   });
 });

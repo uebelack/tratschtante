@@ -2,22 +2,27 @@
   "name": "tratschtante",
   "version": "1.0.0",
   "description": "Just another simple logger for node.js",
+  "license": "MIT",
+  "author": "David Übelacker",
+  "repository": "https://github.com/uebelack/tratschtante",
   "type": "module",
   "main": "src/index.js",
   "types": "types/index.d.ts",
-  "repository": "https://github.com/uebelack/tratschtante",
-  "author": "David Übelacker",
-  "license": "MIT",
   "scripts": {
-    "lint:check": "eslint .",
-    "lint:fix": "eslint --fix .",
-    "format:check": "prettier --check .",
-    "format:write": "prettier --write .",
+    "lint:check": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format:check": "oxfmt --check .",
+    "format:write": "oxfmt .",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
     "types": "tsc",
     "smoke": "node src/smoke.js"
   },
-  "packageManager": "pnpm@12.18.0",
+  "devDependencies": {
+    "jest": "^30.2.0",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
+    "typescript": "^5.9.3"
+  },
   "jest": {
     "collectCoverage": true,
     "collectCoverageFrom": [
@@ -32,14 +37,5 @@
       }
     }
   },
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "@eslint/json": "^1.0.1",
-    "@eslint/markdown": "^7.5.1",
-    "eslint": "^10.0.0",
-    "globals": "^17.3.0",
-    "jest": "^30.2.0",
-    "prettier": "^3.8.1",
-    "typescript": "^5.9.3"
-  }
+  "packageManager": "pnpm@12.18.0"
 }
