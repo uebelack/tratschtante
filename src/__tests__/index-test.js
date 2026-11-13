@@ -9,6 +9,13 @@ class TestError extends Error {
 }
 
 describe("tratschtante", () => {
+  it("should ignore names inherited from Object.prototype", () => {
+    const spy = vi.spyOn(console, "log").mockImplementation(() => {});
+    tratschtante({ formatter: "toString", printer: "toString" }).info("test");
+    expect(spy).toHaveBeenCalledWith(expect.stringContaining("test"));
+    spy.mockRestore();
+  });
+
   it("should not use a formatter as printer", () => {
     const spy = vi.spyOn(console, "log").mockImplementation(() => {});
     tratschtante({ printer: "json" }).info("test");

@@ -39,6 +39,10 @@ function isFunction(func) {
   return typeof func === "function";
 }
 
+function lookup(map, name) {
+  return typeof name === "string" && Object.hasOwn(map, name) ? map[name] : undefined;
+}
+
 function extractMessage(message) {
   if (message) {
     if (isFunction(message)) {
@@ -52,13 +56,13 @@ function extractMessage(message) {
 
 function createLogger(options) {
   const formatter =
-    (isFunction(options.formatter) ? options.formatter : formatters[options.formatter]) ||
-    formatters[process.env.TRATSCHTANTE_FORMATTER] ||
+    (isFunction(options.formatter) ? options.formatter : lookup(formatters, options.formatter)) ||
+    lookup(formatters, process.env.TRATSCHTANTE_FORMATTER) ||
     formatters.modern;
 
   const printer =
-    (isFunction(options.printer) ? options.printer : printers[options.printer]) ||
-    printers[process.env.TRATSCHTANTE_PRINTER] ||
+    (isFunction(options.printer) ? options.printer : lookup(printers, options.printer)) ||
+    lookup(printers, process.env.TRATSCHTANTE_PRINTER) ||
     printers.console;
 
   const definedLogLevel =
