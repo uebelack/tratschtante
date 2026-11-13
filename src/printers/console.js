@@ -1,3 +1,4 @@
+/** @type {import("../index.js").Printer} */
 const consolePrinter = (level, message) => {
   switch (level) {
     case "critical":

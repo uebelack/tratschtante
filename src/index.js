@@ -5,6 +5,39 @@ import lambdaFormatter from "./formatters/lambda.js";
 import emojiFormatter from "./formatters/emoji.js";
 import consolePrinter from "./printers/console.js";
 
+/** @typedef {"critical" | "error" | "warning" | "info" | "debug" | "trace"} Level */
+
+/**
+ * @typedef {object} LogEntry
+ * @property {Date} timestamp
+ * @property {Level} level
+ * @property {string} [category]
+ * @property {string} [message]
+ * @property {string} [stack]
+ */
+
+/** @typedef {(entry: LogEntry) => string} Formatter */
+
+/** @typedef {(level: Level, message: string) => void} Printer */
+
+/**
+ * A message to log. Functions are called lazily, only if the level is enabled.
+ * Errors also log their stack trace.
+ * @typedef {unknown} Message
+ */
+
+/**
+ * @typedef {object} Options
+ * @property {"modern" | "classic" | "json" | "lambda" | "emoji" | Formatter} [formatter]
+ *   Defaults to `TRATSCHTANTE_FORMATTER` or "modern".
+ * @property {"console" | Printer} [printer] Defaults to `TRATSCHTANTE_PRINTER` or "console".
+ * @property {string} [category]
+ * @property {Level} [level] Defaults to `TRATSCHTANTE_LOG_LEVEL`, `NODE_LOG_LEVEL` or "info".
+ */
+
+/** @typedef {{ [level in Level]: (message?: Message) => void }} Logger */
+
+/** @type {{ [level in Level]: Level }} */
 const levels = {
   critical: "critical",
   error: "error",
@@ -14,6 +47,7 @@ const levels = {
   trace: "trace",
 };
 
+/** @type {Record<string, number>} */
 const levelIndexes = {
   critical: 0,
   error: 1,
@@ -23,6 +57,7 @@ const levelIndexes = {
   trace: 5,
 };
 
+/** @type {Record<string, Formatter>} */
 const formatters = {
   classic: classicFormatter,
   modern: modernFormatter,
@@ -31,18 +66,33 @@ const formatters = {
   emoji: emojiFormatter,
 };
 
+/** @type {Record<string, Printer>} */
 const printers = {
   console: consolePrinter,
 };
 
+/**
+ * @param {unknown} func
+ * @returns {func is Function}
+ */
 function isFunction(func) {
   return typeof func === "function";
 }
 
+/**
+ * @template T
+ * @param {Record<string, T>} map
+ * @param {unknown} name
+ * @returns {T | undefined}
+ */
 function lookup(map, name) {
   return typeof name === "string" && Object.hasOwn(map, name) ? map[name] : undefined;
 }
 
+/**
+ * @param {Message} message
+ * @returns {string | undefined}
+ */
 function extractMessage(message) {
   if (message) {
     if (isFunction(message)) {
@@ -54,6 +104,7 @@ function extractMessage(message) {
   return undefined;
 }
 
+/** @param {Options} options */
 function createLogger(options) {
   const formatter =
     (isFunction(options.formatter) ? options.formatter : lookup(formatters, options.formatter)) ||
@@ -69,6 +120,10 @@ function createLogger(options) {
     options.level || process.env.TRATSCHTANTE_LOG_LEVEL || process.env.NODE_LOG_LEVEL || "info";
 
   return {
+    /**
+     * @param {Level} level
+     * @param {Message} message
+     */
     log: (level, message) => {
       if (levelIndexes[definedLogLevel] >= levelIndexes[level]) {
         const entry = {
@@ -76,7 +131,7 @@ function createLogger(options) {
           level,
           category: options.category,
           message: extractMessage(message),
-          stack: message && message.stack,
+          stack: /** @type {{ stack?: string } | undefined} */ (message)?.stack,
         };
         printer(level, formatter(entry));
       }
@@ -84,6 +139,11 @@ function createLogger(options) {
   };
 }
 
+/**
+ * Creates a logger.
+ * @param {Options} [options]
+ * @returns {Logger}
+ */
 const tratschtante = (options = {}) => {
   const logger = createLogger(options);
   return {

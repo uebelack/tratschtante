@@ -9,6 +9,7 @@ const style = {
   reset: "\x1b[0m",
 };
 
+/** @type {import("../index.js").Formatter} */
 function modern(message) {
   const result = [];
 

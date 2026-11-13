@@ -1,1 +1,1 @@
-{"version":3,"file":"modern.d.ts","sourceRoot":"","sources":["../../src/formatters/modern.js"],"names":[],"mappings":"AAWA,iBAAS,MAAM,CAAC,OAAO,KAAA,UAkBtB;eAEc,MAAM"}
+{"version":3,"file":"modern.d.ts","sourceRoot":"","sources":["../../src/formatters/modern.js"],"names":[],"mappings":"AAWA,8CAA8C;AAC9C,iBAAS,MAAM,CAAC,OAAO,gCAAA,UAkBtB;eAEc,MAAM"}

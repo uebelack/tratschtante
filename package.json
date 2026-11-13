@@ -40,6 +40,7 @@
     "smoke": "node src/smoke.js"
   },
   "devDependencies": {
+    "@types/node": "^24.19.2",
     "@vitest/coverage-istanbul": "^5.1.0",
     "oxfmt": "^0.78.0",
     "oxlint": "^1.93.0",

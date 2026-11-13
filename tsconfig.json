@@ -3,6 +3,9 @@
   "exclude": ["src/**/*-test.js", "src/smoke.js"],
   "compilerOptions": {
     "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "types": ["node"],
     "declaration": true,
     "emitDeclarationOnly": true,
     "rootDir": "src",

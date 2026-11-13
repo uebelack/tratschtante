@@ -7,6 +7,7 @@ const levelMapping = {
   trace: "\u{1F50D}",
 };
 
+/** @type {import("../index.js").Formatter} */
 function emoji(message) {
   const result = [];
 
