@@ -40,6 +40,8 @@ const log = tratschtante();
 log.info("Hello World!");
 ```
 
+Type declarations are included, so TypeScript users get typed options and logger methods out of the box.
+
 ## Options
 
 You can pass following options as function parameter or set them via environment variable:
